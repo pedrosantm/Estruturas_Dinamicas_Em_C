@@ -84,7 +84,7 @@ void inserir_inicio(lista* l, int v){
     return;
 }
 
-int inseir_indice(lista* l, int v, int ind){
+int inserir_indice(lista* l, int v, int ind){
     elemento* novo = (elemento*)malloc(sizeof(elemento));
     elemento* aux = l->inicio;
     novo->valor = v;
@@ -161,7 +161,8 @@ int retirar_indice(lista* l, int* v, int indice){
         }
 
         *v = aux_atual->valor;
-        aux_anterior->prox = NULL;
+        aux_anterior->prox = aux_atual->prox;
+        aux_atual->prox = NULL;
         free(aux_atual);
         return 1;
     }
